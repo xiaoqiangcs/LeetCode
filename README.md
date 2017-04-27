@@ -1,1 +1,2 @@
 # LeetCode
+目的是实现LeetCode上面的所有的算法题目，实现语言是Python
