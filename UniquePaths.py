@@ -19,4 +19,4 @@ class Solution(object):
             for index_collum in range(1,n):
                 dp[index_row][index_collum]=dp[index_row-1][index_collum]+dp[index_row][index_collum-1]
         return(dp[m-1][n-1])
-print(Solution().unique_paths(3,3))
+print(Solution().unique_paths(5,2))
