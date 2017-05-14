@@ -8,4 +8,4 @@ class Soultion (object):
             Profit = max(Profit, price-curren_min)
             curren_min = min(price, curren_min)
         return Profit
-print(Soultion().maxProfit([3,2,3,1,2]))
+print(Soultion().maxProfit([4,4,6,1,1,4,2,5]))

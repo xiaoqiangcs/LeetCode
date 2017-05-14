@@ -2,10 +2,9 @@ class Soultion (object):
     def maxProfit(self, prices):
         if not prices:
             return 0
-        curren_min=2**31-1
         Profit = 0
-        for price in prices:
-            Profit = max(Profit, price-curren_min)
-            curren_min = min(price, curren_min)
+        for price in range(1,len(prices)):
+            if prices[price]-prices[price-1] > 0:
+                Profit+=prices[price]-prices[price-1]
         return Profit
-print(Soultion().maxProfit([3,2,3,1,2]))
+print(Soultion().maxProfit([2,1,2,0,1]))
