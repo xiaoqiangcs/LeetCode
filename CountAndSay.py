@@ -1,19 +1,23 @@
 class Solution:
-    # @param A, B: Two string.
-    # @return: the length of the longest common substring.
-    def longestCommonSubstring(self, A, B):
+    """
+    @param L: Given n pieces of wood with length L[i]
+    @param k: An integer
+    return: The maximum length of the small pieces.
+    """
+    def woodCut(self, L, k):
         # write your code here
-        if not (A and B):
+        if not L:
             return 0
-        lcs = 0
-        for i in range(len(A)):
-            for j in range(len(B)):
-                lcs_temp = 0
-                while (i + lcs_temp < len(A) and
-                       j + lcs_temp < len(B) and
-                       A[i + lcs_temp] == B[j + lcs_temp]):
-                    lcs_temp += 1
-                # update lcs
-                if lcs_temp > lcs:
-                    lcs = lcs_temp
-        return lcs
+        left, right = 1, max(L)
+        while left+1 < right:
+            mid = left+int((right-left)/2)
+            pieces = sum(int(i / mid) for i in L)
+            if pieces < k:
+                right = mid
+            else:
+                left = mid
+        if sum(int(i / right) for i in L) >=k:
+           return right
+        return left
+print(Solution().woodCut([2147483644,2147483645,2147483646,2147483647],2))
+
